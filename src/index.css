@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+/* Tokens del sistema de diseño. Ver docs/DESIGN.md. */
+@theme {
+  --color-kraft: #e9d3ae;
+  --color-kraft-dark: #d6b98c;
+  --color-tinta: #1c1917;
+  --color-sello: #c8102e;
+  --color-fonda: #1f3a93;
+  --color-boleta: #fffdf6;
+
+  --font-display: 'Anton', Impact, sans-serif;
+  --font-cuerpo: 'Archivo', sans-serif;
+  --font-ticket: 'IBM Plex Mono', monospace;
+
+  --text-titulo: 40px;
+  --text-titulo-desktop: 64px;
+  --text-cuota: 44px;
+  --text-stepper: 32px;
+  --text-pregunta: 18px;
+  --text-cuerpo: 16px;
+  --text-ticket: 14px;
+  --text-nota: 13px;
+
+  --shadow-dura: 4px 4px 0 var(--color-tinta);
+  --shadow-dura-sm: 3px 3px 0 var(--color-tinta);
+  --shadow-dura-lg: 6px 6px 0 var(--color-tinta);
+
+  --spacing-contenido: 560px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-kraft);
+    color: var(--color-tinta);
+    font-family: var(--font-cuerpo);
+    font-size: var(--text-cuerpo);
+    line-height: 1.5;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-fonda);
+    outline-offset: 2px;
+  }
+
+  a {
+    color: var(--color-fonda);
+  }
+
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  input {
+    font-family: inherit;
+    color: inherit;
+  }
+
+  /* Los steppers y los precios usan números; sin flechas nativas. */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@utility rotulo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+@utility ticket {
+  font-family: var(--font-ticket);
+  font-size: var(--text-ticket);
+  line-height: 1.6;
+}
+
+/*
+ * Dientes de ticket cortado. Se posicionan sobre el borde de la boleta para
+ * morderlo: los círculos son del color de la página, no de la boleta.
+ */
+@utility dientes {
+  background-image: radial-gradient(
+    circle at 6px 50%,
+    var(--color-kraft) 4.5px,
+    transparent 5px
+  );
+  background-size: 12px 100%;
+  background-repeat: repeat-x;
+}
+
+@keyframes sello-entra {
+  from {
+    transform: rotate(-6deg) scale(1.15);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sello-anima {
+    animation: sello-entra 150ms ease-out;
+  }
+}
