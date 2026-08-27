@@ -5,8 +5,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { BarraInferior } from './components/BarraInferior'
 import { Boleta } from './components/Boleta'
 import { Ficha } from './components/Ficha'
+import { Guirnalda } from './components/Guirnalda'
 import { Precio } from './components/Precio'
 import { Stepper } from './components/Stepper'
+import { Volantin } from './components/Volantin'
 import { calcularVaca } from './lib/calcular'
 import { TITULO_COMPARTIR, textoCompartir } from './lib/compartir'
 import {
@@ -148,7 +150,9 @@ export default function App() {
 
   return (
     <div className="mx-auto max-w-contenido px-5 pb-40">
-      <header className="pt-10">
+      <Guirnalda className="pt-4" />
+
+      <header className="pt-6">
         <h1 className="rotulo text-titulo md:text-[64px]">La Vaca del 18</h1>
         <p className="mt-2 text-tinta/80">
           Cuántos van, qué se compra y cuánto pone cada uno. Para pegar en el grupo.
@@ -272,10 +276,16 @@ export default function App() {
         {aviso}
       </p>
 
-      <footer className="mt-10 border-t-2 border-kraft-dark pt-4 text-nota text-tinta/70">
-        <p>Precios estimados. Ajústalos si tienes mejores.</p>
-        <p>Hecho en una clase con Claude Code. Código en GitHub.</p>
-        <p>lavacadel18.cl</p>
+      <footer className="mt-10 flex items-end justify-between gap-6 border-t-2 border-kraft-dark pt-4 text-nota text-tinta/70">
+        <div>
+          <p>Precios estimados. Ajústalos si tienes mejores.</p>
+          <p>
+            Hecho en una clase con Claude Code.{' '}
+            <a href="https://github.com/NLACE-COM/lavacadel18">Código en GitHub</a>.
+          </p>
+          <p>lavacadel18.cl</p>
+        </div>
+        <Volantin className="h-28 w-24 shrink-0" />
       </footer>
 
       <BarraInferior

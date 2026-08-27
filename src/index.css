@@ -36,7 +36,22 @@
 
   body {
     margin: 0;
+    /*
+     * Trama de lienzo de fonda. Son rayas de borde duro, no un degradado:
+     * dos series cruzadas de líneas de 1 px casi transparentes sobre el kraft.
+     */
     background-color: var(--color-kraft);
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        color-mix(in srgb, var(--color-tinta) 4%, transparent) 0 1px,
+        transparent 1px 7px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        color-mix(in srgb, var(--color-tinta) 4%, transparent) 0 1px,
+        transparent 1px 7px
+      );
     color: var(--color-tinta);
     font-family: var(--font-cuerpo);
     font-size: var(--text-cuerpo);

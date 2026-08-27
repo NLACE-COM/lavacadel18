@@ -2,6 +2,7 @@
 // El sello de la cuota. Es lo que la gente busca al abrir la página.
 
 import { formatoMonto } from '../lib/formato'
+import { Estrella } from './Estrella'
 
 interface Props {
   cuota: number
@@ -15,10 +16,11 @@ export function Sello({ cuota, pie }: Props) {
       <div
         // La clave reinicia la animación cada vez que la cuota cambia.
         key={cuota}
-        className="sello-anima rotulo border-[3px] border-sello px-6 py-3 text-cuota text-sello"
+        className="sello-anima rotulo flex items-center gap-3 border-[3px] border-sello px-6 py-3 text-cuota text-sello"
         style={{ transform: 'rotate(-6deg)' }}
       >
-        Pone ${formatoMonto(cuota)}
+        <Estrella className="h-7 w-7 shrink-0" />
+        <span>Pone ${formatoMonto(cuota)}</span>
       </div>
       <p className="mt-5 text-nota text-tinta/80">{pie}</p>
     </div>
