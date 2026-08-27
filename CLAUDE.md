@@ -7,6 +7,7 @@ Lee estos archivos antes de escribir código:
 - `docs/BRIEF.md`: qué es el producto, reglas de negocio, raciones, precios, alcance.
 - `docs/DESIGN.md`: tokens de color, tipografía, componentes.
 - `docs/COPY.md`: todos los textos de la interfaz, tal cual van.
+- `docs/BITACORA.md`: qué se decidió, qué desajustes hay entre documentos y qué queda pendiente.
 
 Cuando el brief y el código no coincidan, gana el brief. Si crees que el brief está mal, dilo antes de cambiarlo.
 
@@ -18,6 +19,12 @@ Cuando el brief y el código no coincidan, gana el brief. Si crees que el brief 
 - Node 20 o superior. npm.
 - Deploy en Vercel como sitio estático. Sin funciones serverless.
 
+## Dónde vive
+
+- Repo: `NLACE-COM/lavacadel18` en GitHub, público.
+- Vercel: equipo `nlace`, proyecto `lavacadel18`. Cada push a `main` despliega a producción.
+- Producción hoy: `lavacadel18.vercel.app`. El dominio `lavacadel18.cl` todavía no se registra.
+
 ## Estructura
 
 ```
@@ -27,7 +34,9 @@ src/
     calcular.ts      calcularVaca(input): Resultado. Función pura. Sin React. Sin DOM.
     calcular.test.ts
     url.ts           serializar y parsear el estado desde search params.
+    url.test.ts
     formato.ts       pesos chilenos, kilos, litros.
+    compartir.ts     el texto plano que se pega en el grupo.
   components/
     Stepper.tsx
     Ficha.tsx
@@ -35,11 +44,14 @@ src/
     Boleta.tsx
     Sello.tsx
     BarraInferior.tsx
+    Guirnalda.tsx    banderines de fonda bajo la cabecera.
+    Estrella.tsx     la solitaria, dentro del sello.
+    Volantin.tsx     remate del pie.
   App.tsx
   main.tsx
   index.css
 docs/
-  BRIEF.md DESIGN.md COPY.md
+  BRIEF.md DESIGN.md COPY.md BITACORA.md
 ```
 
 ## Reglas de código
